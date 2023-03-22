@@ -2,7 +2,7 @@
 
 ---
 
-TIB 1 - Labor in `C`
+TIB 1 - "Programmieren" Labor in `C`
 
 ```
 /*
