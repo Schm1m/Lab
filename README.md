@@ -5,7 +5,7 @@
 TIB 1 - "Programmieren" Labor in `C`
 
 ```
-/*
+
 This file is only for textual information to understand given code
 
 
@@ -20,5 +20,5 @@ how to find the right file?
     every file (from author tim) also tells you its purpose in the header
         L[lab]Q[question]
 
-*/
+
 ```
