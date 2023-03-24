@@ -8,7 +8,7 @@ int main(void)
     int array[3] = {a, b, c};                      // put inputs into an array
     for (i = 3; i > 0; i--)                        // iterate through all part of array
     {                                              //
-        printf("Zahl %d: %3d\n", i, array[i - 1]); // print the arrays contents in reverse order
+        printf("Zahl %d: %4d\n", i, array[i - 1]); // print the arrays contents in reverse order
     }                                              //
     return 0;                                      // no error
 }
