@@ -1,13 +1,9 @@
 // cody by tim, L2Q6
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define SPITZE 1        // define values to named grades
-#define GUT 2           //
-#define BEFRIEDIGEND 3  //
-#define AUSREICHEND 4   //
-#define DURCHGEFALLEN 5 //
-#define JA 1            //
-#define NEIN 0          //
+
+#define JA 1   //
+#define NEIN 0 //
 
 int main(void)
 {
