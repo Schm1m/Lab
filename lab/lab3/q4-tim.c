@@ -5,8 +5,10 @@
 
 int main(void)
 {
+    char star = '*';
+    char space = ' ';
     int h, l;                    // initialise variables (height and lenght)
-    scanf('%d %d', &h, &l);      // wait for integer inputs
+    scanf("%d %d", &h, &l);      // wait for integer inputs
     for (int i = 1; i <= h; i++) // make h rows
     {
         if (i == 1 || i == h)
@@ -14,7 +16,7 @@ int main(void)
             // full lines
             for (int j = 1; j <= l; j++) // make a line of '*'s
             {
-                printf('*');
+                putchar(star);
             }
         }
         else
@@ -24,15 +26,15 @@ int main(void)
             {
                 if (j == 1 || j == l) // set a '*' at the beginning and the end of the line
                 {
-                    printf('*');
+                    putchar(star);
                 }
                 else
                 {
-                    printf(' ');
+                    putchar(space);
                 }
             }
         }
-        printf('\n');
+        printf("\n");
     }
 
     return 0;

@@ -9,8 +9,8 @@ int main(void)
 
     while (note < 1 || note > 5)
     {
-        printf('\nGeben Sie bitte eine Note (1-5) ein: '); // ask for input
-        scanf('%d', &note);                                // wait for input
+        printf("\nGeben Sie bitte eine Note (1-5) ein: "); // ask for input
+        scanf("%d", &note);                                // wait for input
     }
     switch (note)                    // if note is one of:
     {                                //
@@ -18,10 +18,10 @@ int main(void)
     case 2:                          // 2
     case 3:                          // 3
     case 4:                          // 4
-        printf('\nOK!');             // print 'OK!'
+        printf("\nOK!");             // print "OK!"
         break;                       //
     default:                         // else:
-        printf('\nNICHT bestanden'); // print 'NICHT bestanden'
+        printf("\nNICHT bestanden"); // print "NICHT bestanden"
         break;
     }
 

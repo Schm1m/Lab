@@ -5,8 +5,10 @@
 
 int main(void)
 {
+    char plus = '+';
+    char minus = '-';
     int x, y;                    // initialise variable
-    scanf('%d %d', &x, &y);      // wait for integer input
+    scanf("%d %d", &x, &y);      // wait for integer input
     for (int i = 1; i <= x; i++) // print x rows
     {
         {
@@ -16,11 +18,11 @@ int main(void)
                 {
                     if (j % 2 == 0)
                     {
-                        printf('+');
+                        putchar(plus);
                     }
                     else
                     {
-                        printf('-');
+                        putchar(minus);
                     }
                 }
             }
@@ -30,15 +32,15 @@ int main(void)
                 {
                     if (j % 2 == 0)
                     {
-                        printf('-');
+                        putchar(minus);
                     }
                     else
                     {
-                        printf('+');
+                        putchar(plus);
                     }
                 }
             }
         }
-        printf('\n');
+        printf("\n");
     }
 }

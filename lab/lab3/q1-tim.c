@@ -5,11 +5,12 @@
 
 int main(void)
 {
+    char star = '*';
     int num;                      // initialise variable
-    scanf('%d', &num);            // wait for integer input
+    scanf("%d", &num);            // wait for integer input
     for (int i = 0; i < num; i++) // print as many '*' as defined by the input
     {
-        printf('*');
+        putchar(star);
     }
 
     return 0;

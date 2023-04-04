@@ -5,17 +5,19 @@
 
 int main(void)
 {
+    char star = '*';
+    char line = '_';
     int num;                       // initialise variable
-    scanf('%d', &num);             // wait for integer input
+    scanf("%d", &num);             // wait for integer input
     for (int i = 1; i <= num; i++) // print:
     {
         if (i % 2 == 0)
         {
-            printf('_'); // a '_' if i is even
+            putchar(line); // a '_' if i is even
         }
         else
         {
-            printf('*'); // a '*' if i is odd
+            putchar(star); // a '*' if i is odd
         }
     }
 
