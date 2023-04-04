@@ -6,35 +6,35 @@
 int main(void)
 {
     int x;                       // initialize variable
-    scanf("%d", &x);             // wait for input
+    scanf('%d', &x);             // wait for input
     for (int i = 1; i <= x; i++) // create x rows
     {
         if (i == 1 || i == x)            // for the first and last row
         {                                //
-            for (int j = 1; j <= x; j++) // fill with "*"s
+            for (int j = 1; j <= x; j++) // fill with '*'s
             {
-                printf("*");
+                printf('*');
             }
         }
         else // for every other row
         {
             for (int j = 1; j <= x; j++)
             {
-                if (j == 1 || j == x) // set the first an last character as a "*"
+                if (j == 1 || j == x) // set the first an last character as a '*'
                 {
-                    printf("*");
+                    printf('*');
                 }
-                else if (j == i || j == (x - (i - 1))) // set the character a "*" if i and j are the samee and mirrored
+                else if (j == i || j == (x - (i - 1))) // set the character a '*' if i and j are the samee and mirrored
                 {
-                    printf("*");
+                    printf('*');
                 }
-                else // set every other character as a " "
+                else // set every other character as a ' '
                 {
-                    printf(" ");
+                    printf(' ');
                 }
             }
         }
-        printf("\n");
+        printf('\n');
     }
     return 0;
 }

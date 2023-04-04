@@ -6,10 +6,10 @@
 int main(void)
 {
     int num;                      // initialise variable
-    scanf("%d", &num);            // wait for integer input
-    for (int i = 0; i < num; i++) // print as many "*" as defined by the input
+    scanf('%d', &num);            // wait for integer input
+    for (int i = 0; i < num; i++) // print as many '*' as defined by the input
     {
-        printf("*");
+        printf('*');
     }
 
     return 0;
