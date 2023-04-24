@@ -29,6 +29,6 @@ int weekday(int d, int m, int y) {
     if (nowLeap == 1 && deltaD + deltaM <= 57) {  // subtract 1 if the given date is before 29.02 ( if its a leap year )
         leap--;
     }
-    int test = (deltaD + deltaM + deltaY + leap + unixZero) % 7;  // add everything up and get the weekday with % 7
-    return test;
+    int weekday = (deltaD + deltaM + deltaY + leap + unixZero) % 7;  // add everything up and get the weekday with % 7
+    return weekday;
 }
