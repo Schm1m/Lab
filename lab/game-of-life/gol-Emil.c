@@ -1,4 +1,4 @@
-/*Program which lets the user input a n array of ones and zeros                             */
+/*Program which lets the user input coordinates of living cells within a 20x20 array        */
 /*and modifies that array according to the ruleset of Conway's "Game of Life" (GoL).        */
 /*(https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)                                   */
 /*                                                                                          */
@@ -40,7 +40,7 @@ int main(void)
             break;
     }
 
-    for (int gen = 0; gen < iterations; gen++)
+    for (int gen = 0; gen <= iterations; gen++)
     {
         printf("-- Generation: %d\n", gen);
 
