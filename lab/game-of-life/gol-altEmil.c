@@ -98,13 +98,11 @@ int main(void)
             break;
     }
 
-    printer(arr, gen);
-
     while (gen <= iterations) //prints the array for every generation up to the number of iterations which are input
     {
+        printer(arr, gen);
         evolve(arr);
         gen++;
-        printer(arr, gen);
     }
 
     return 0;
