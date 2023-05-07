@@ -69,9 +69,9 @@ void show()
 
 int isAlive(int Gen[GRID][GRID], int i, int j)
 {
-	if (i < GRID)
+	if (i >= 0 && j >= 0) // top-left bounds
 	{
-		if (j < GRID)
+		if (i < GRID && j < GRID) // right-left bounds
 		{
 			return Gen[i][j]; // only read value if within bound
 		}
@@ -160,9 +160,8 @@ void populate()
 	}
 }
 
-void setupSim()
+void setupSim() // get number of sim and read initial cell states
 {
-	// get number of sim
 	MassExtinction(); // clean up the board first
 	scanf("%d", &Generations);
 	populate();
@@ -170,10 +169,7 @@ void setupSim()
 
 int main(int argc, char *argv[])
 {
-
 	setupSim();
-
 	SimulateLife();
-
 	return 0;
 }
