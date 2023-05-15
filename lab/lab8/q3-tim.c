@@ -6,7 +6,9 @@ int faculty(int);  // function prototype
 int input(void);   // -
 
 int main(int argc, char *argv[]) {
-    printf("%d! = %d", i, faculty(input()));  // print factorial of i
+    int i;
+    i = input();
+    printf("%d! = %d", i, faculty(i));  // print factorial of i
 }
 
 int faculty(int n) {
@@ -14,7 +16,7 @@ int faculty(int n) {
 }
 
 int input(void) {
-    int i;            // initiate i
-    scanf("%d", &i);  // take input for i
-    return i;
+    int x;            // initiate i
+    scanf("%d", &x);  // take input for i
+    return x;
 }
