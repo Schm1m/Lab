@@ -155,8 +155,8 @@ int customerCount(customer *carCustomer) {
 void printList(customer *carCustomer) {
 
   /*
-   * JUST GOT TO THE POINT WHERE THE TEST CALLS FOR THE
-   * NOT SORTED LIST, THIS IS SHIT!!!
+   * SO, IT WAS MY ERROR, STILL A SHIT LAB.
+   * SORTING IS NEEDED...
    */
   sortNodesByIndex(carCustomer);
   while (carCustomer != NULL) {
