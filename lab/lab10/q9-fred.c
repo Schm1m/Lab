@@ -35,6 +35,7 @@ numberItem *first(numberItem *head) {
   numberItem *car = head;
 
   while (car->previousItem != NULL) {
+
     car = car->previousItem;
   }
 
