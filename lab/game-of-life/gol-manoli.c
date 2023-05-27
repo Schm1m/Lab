@@ -46,9 +46,9 @@ void MassExtinction(int board[GRID][GRID])
 
 int isAlive(int Gen[GRID][GRID], int i, int j)
 {
-	if (0 <= i && i < GRID) // Row-Bounds			-> [0, GRID]
+	if (0 <= i && i < GRID) // Row-Bounds			-> [0, GRID)
 	{
-		if (0 <= j && j < GRID) // Column-Bounds	-> [0, GRID]
+		if (0 <= j && j < GRID) // Column-Bounds	-> [0, GRID)
 		{
 			return Gen[i][j]; // only read value if index within bounds
 		}
