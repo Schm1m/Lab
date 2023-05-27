@@ -10,73 +10,50 @@
 // Two Board to represent evolution
 int Board[2][GRID][GRID]; // can't change the current generation state!
 
+enum CellState
+{
+	Dead, // Value of 0
+	Alive // Value of 1
+};
+
 // Oscillator between 1 and zero to access the current generation configuration from the Board Array
 int CurrentGeneration = 0;
 
 int GenerationalShift()
-{
+{ // protects CurrentGeneration variable from mis-use #hopefully
 	CurrentGeneration = 1 - CurrentGeneration;
 	return CurrentGeneration;
 }
 
 // number of generation to be simulated
-int Generations = 0; // will be overwritten be setup()
+int Generations; // will be overwritten/set be setup()
 
 // Dead-Alive Ascii char used
 char State[] = ".#";
 
-void REST(int board[GRID][GRID], int value)
-{
+void MassExtinction(int board[GRID][GRID])
+{ // rests the given board
 	int j, i = GRID;
 	while (i--)
 	{
 		j = GRID;
 		while (j--)
 		{
-			board[i][j] = value;
+			board[i][j] = Dead;
 		}
 	}
-}
-
-void MassExtinction()
-{ // reset the board to the default value of 0
-	REST(Board[CurrentGeneration], 0);
-}
-
-void showState(int *cell)
-{
-	putchar(State[*cell && 1]); // make sure that its either 1 or 0
-}
-
-void showBoard(int board[GRID][GRID])
-{
-	int j, i = -1;
-	while (++i < GRID)
-	{
-		j = -1;
-		while (++j < GRID)
-		{
-			showState(*(board + i) + j);
-		}
-		putchar('\n');
-	}
-}
-
-void show()
-{
-	showBoard(Board[CurrentGeneration]);
 }
 
 int isAlive(int Gen[GRID][GRID], int i, int j)
 {
-	if (i >= 0 && j >= 0) // top-left bounds
+	if (0 <= i && i < GRID) // Row-Bounds			-> [0, GRID]
 	{
-		if (i < GRID && j < GRID) // right-left bounds
+		if (0 <= j && j < GRID) // Column-Bounds	-> [0, GRID]
 		{
-			return Gen[i][j]; // only read value if within bound
+			return Gen[i][j]; // only read value if index within bounds
 		}
 	}
-	return 0; // otherwise assume dead
+	return Dead; // otherwise assume dead
 }
 
 int AliveNeighbors(int Gen[GRID][GRID], int i, int j)
@@ -84,17 +61,16 @@ int AliveNeighbors(int Gen[GRID][GRID], int i, int j)
 	int headcount = 0;
 	int S[] = {0, 1, -1}; // access Sequence
 
-	int m = -1; // shift
-	int n = 0;	// skip 0 for first run
-
-	while (++m < 3)
+	int m = 0; // shift
+	int n = 1; // skip 0 for first run
+	do
 	{
-		while (++n < 3)
+		do
 		{ // isAlive checks if within bounds
 			headcount += isAlive(Gen, i + S[m], j + S[n]);
-		}
-		n = -1; // rest for the next run
-	}
+		} while (++n < 3);
+		n = 0; // rest for the next run
+	} while (++m < 3);
 
 	return headcount;
 }
@@ -107,45 +83,51 @@ int LiveDieOrBeBorn(int Gen[GRID][GRID], int i, int j)
 	{ // the cell is alive // only need a reason to kill it
 		// interval (1,4) <==> [2, 3]
 		// if fewer than 2 neighbors or more the 3 ==> cell will die
-		return (neighbors < 2 || neighbors > 3) ? 0 : 1; // or not
+		return (neighbors < 2 || neighbors > 3) ? Dead : Alive; // or not
 	}
 	// the cell is dead
 	// need exactly three neighbors to revive
-	return (neighbors == 3) ? 1 : 0;
+	return (neighbors == 3) ? Alive : Dead;
 }
 
 void transition(int Gen[GRID][GRID], int nextGen[GRID][GRID])
 {
-	REST(nextGen, 0); // setup board
-
-	int j, i = -1;
-
-	while (++i < GRID)
+	for (int i = 0; i < GRID; i++)
 	{
-		j = -1;
-		while (++j < GRID)
+		for (int j = 0; j < GRID; j++)
 		{
 			nextGen[i][j] = LiveDieOrBeBorn(Gen, i, j);
 		}
 	}
 }
 
-void SimulateLife()
+void show(int board[GRID][GRID])
 {
-	int i = -1;
-	int Gen, nextGen;
-
-	while (++i <= Generations)
+	for (int i = 0; i < GRID; i++)
 	{
-		printf("-- Generation: %d\n", i);
-		show();
-		Gen = CurrentGeneration;
-		nextGen = GenerationalShift();
-		transition(Board[Gen], Board[nextGen]);
+		for (int j = 0; j < GRID; j++)
+		{
+			putchar(State[board[i][j]]);
+		}
+		putchar('\n');
 	}
 }
 
-void populate()
+void SimulateLife()
+{
+	int i = 0;
+	int Gen, nextGen;
+	do
+	{
+		printf("-- Generation: %d\n", i);
+		Gen = CurrentGeneration;
+		show(Board[Gen]);
+		nextGen = GenerationalShift();
+		transition(Board[Gen], Board[nextGen]);
+	} while (i++ < Generations); // i <= G -> [0, G]
+}
+
+void populate() // reads initial cell states
 {
 	char buffer;
 	scanf("\n%c", &buffer);
@@ -155,14 +137,14 @@ void populate()
 	while (buffer == 'a')
 	{
 		scanf("%d %d", &j, &i);
-		Board[CurrentGeneration][i][j] = 1;
+		Board[CurrentGeneration][i][j] = Alive;
 		scanf("\n%c", &buffer);
 	}
 }
 
-void setupSim() // get number of sim and read initial cell states
+void setupSim() // get number of Simulation needed
 {
-	MassExtinction(); // clean up the board first
+	MassExtinction(Board[CurrentGeneration]); // clean up the board first
 	scanf("%d", &Generations);
 	populate();
 }
