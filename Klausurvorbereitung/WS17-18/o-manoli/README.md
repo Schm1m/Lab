@@ -291,7 +291,7 @@ int main(void) // Hauptprogramm (4)
 
 ```
 
-## Aufgaeb 4: Strukturen
+## Aufgabe 4: Strukturen
 
 Es soll der Inhalt eines Kühlschranks verwaltet werden. Bei Eingabe des aktuellen Datums (Tag, Monat, Jahr) werden alle bis dahin abgelaufenen Produkte gelistet. Es sollen Produkte in einer dynamischen Liste verwaltet werden. Pro Produkt wird der Produktname, Produktdetails (mit je 50 Zeichen) und das Ablaufdatum sowie ein Zeiger auf das folgende Listenelement in einem Struct abgelegt.
 
