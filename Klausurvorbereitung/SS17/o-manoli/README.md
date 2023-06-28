@@ -252,9 +252,9 @@ int main()
 
 ```
 
-[MS-C: switch Statement](https://learn.microsoft.com/en-us/cpp/c-language/switch-statement-c?view=msvc-170)
+[Microsoft Learn: switch Statement](https://learn.microsoft.com/en-us/cpp/c-language/switch-statement-c?view=msvc-170)
 
-[MS: switch-Anweisung (C)](https://learn.microsoft.com/de-de/cpp/c-language/switch-statement-c?view=msvc-170)
+[Microsoft Learn: switch-Anweisung (C)](https://learn.microsoft.com/de-de/cpp/c-language/switch-statement-c?view=msvc-170)
 
 [C-Programmierung: switch Anweisung](https://de.wikibooks.org/wiki/C-Programmierung:_Sprachbeschreibung:_Anweisungen#switch)
 
